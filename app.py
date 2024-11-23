@@ -2,7 +2,7 @@ import streamlit as st
 from utils import load_data, load_image
 from config import *
 
-# Page Configuration
+# Pagina configuracion 
 st.set_page_config(
     page_title="WNBAmarket",
     layout="wide"
@@ -11,22 +11,22 @@ st.set_page_config(
 def main():
     st.title("Estadísticas de Jugadoras de la WNBA (2016-2024)")
 
-    # Load data
+    # Cargar datos
     data = load_data(DATA_URL)
     if data is None:
         st.error("Failed to load data. Please try again later.")
         return
 
-    # Create three main sections using columns
+    # Crea tres secciones principales usando columnas
     col1, col2 = st.columns([2, 1])
 
     with col1:
-        # Data Table Section
+        # Sección de tabla de datos
         with st.container():
             st.subheader("Estadísticas de jugadoras")
             st.dataframe(data, height=400)
 
-        # Contract Statistics Section
+        # Sección de estadísticas de contratos
         with st.container():
             st.subheader("Gráfica: Contrato contra Estadísticas Individuales")
             contract_image = load_image(CONTRACT_GRAPH_URL)
@@ -34,7 +34,7 @@ def main():
                 st.image(contract_image, use_column_width=True)
 
     with col2:
-        # Individual Player Analysis Section
+        # Sección de análisis de jugadores individuales
         with st.container():
             st.subheader("Gráfica: Jugadoras individuales")
             player = st.selectbox(
@@ -47,7 +47,7 @@ def main():
             if player_image:
                 st.image(player_image, use_column_width=True)
 
-        # Yearly Statistics Section
+        # Sección de Estadísticas Anuales
         with st.container():
             st.subheader("Gráfica: Media de estadísticas a traves de los años")
             stat = st.selectbox(
