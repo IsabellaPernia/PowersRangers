@@ -28,7 +28,7 @@ def main():
 
         # Sección de estadísticas de contratos
         with st.container():
-            st.subheader("Gráfica: Contrato contra Estadísticas Individuales")
+            st.subheader("Gráfica: Contrato contra Estadísticas Interesantes")
             contract_image = load_image(CONTRACT_GRAPH_URL)
             if contract_image:
                 st.image(contract_image, use_column_width=True)
@@ -42,6 +42,8 @@ def main():
                 options=data['Nombre'].unique()
             )
             
+            # Mostrar Gráfica Individual de Jugadora Seleccionada
+            st.write(f"### Gráfica Individual de {player}")
             player_graph_url = f"{INDIVIDUAL_GRAPHS_DIR}{player.replace(' ', '_')}.png"
             player_image = load_image(player_graph_url)
             if player_image:
@@ -55,6 +57,7 @@ def main():
                 options=STATS_COLUMNS
             )
             
+            st.write(f"### Gráfica de {stat} a través de los años")
             stat_graph_url = f"{YEARLY_GRAPHS_DIR}{stat.replace(' ', '_')}.png"
             stat_image = load_image(stat_graph_url)
             if stat_image:
