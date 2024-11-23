@@ -9,7 +9,7 @@ st.set_page_config(
 )
 
 def main():
-    st.title("WNBA Player Statistics (2016-2024)")
+    st.title("Estadísticas de Jugadoras de la WNBA (2016-2024)")
 
     # Load data
     data = load_data(DATA_URL)
@@ -28,7 +28,7 @@ def main():
 
         # Contract Statistics Section
         with st.container():
-            st.subheader("Contrato vs. Estadísticas Análisis")
+            st.subheader("Gráfica: Contrato contra Estadísticas Endividuales")
             contract_image = load_image(CONTRACT_GRAPH_URL)
             if contract_image:
                 st.image(contract_image, use_column_width=True)
@@ -36,9 +36,9 @@ def main():
     with col2:
         # Individual Player Analysis Section
         with st.container():
-            st.subheader("Jugadoras individuales")
+            st.subheader("Gráfica: Jugadoras individuales")
             player = st.selectbox(
-                "Seleccione un jugadora:",
+                "Selección de jugadora:",
                 options=data['Nombre'].unique()
             )
             
@@ -49,9 +49,9 @@ def main():
 
         # Yearly Statistics Section
         with st.container():
-            st.subheader("Datos de Liga por año")
+            st.subheader("Gráfica: Media de estadísticas a traves de los años")
             stat = st.selectbox(
-                "Seleccione una estadística:",
+                "Selección de estadística:",
                 options=STATS_COLUMNS
             )
             
