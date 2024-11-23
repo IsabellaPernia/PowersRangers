@@ -4,7 +4,7 @@ from config import *
 
 # Page Configuration
 st.set_page_config(
-    page_title="WNBA Statistics",
+    page_title="WNBAmarket",
     layout="wide"
 )
 
@@ -23,12 +23,12 @@ def main():
     with col1:
         # Data Table Section
         with st.container():
-            st.subheader("Player Statistics")
+            st.subheader("Estadísticas de jugadoras")
             st.dataframe(data, height=400)
 
         # Contract Statistics Section
         with st.container():
-            st.subheader("Contract vs. Statistics Analysis")
+            st.subheader("Contrato vs. Estadísticas Análisis")
             contract_image = load_image(CONTRACT_GRAPH_URL)
             if contract_image:
                 st.image(contract_image, use_column_width=True)
@@ -36,9 +36,9 @@ def main():
     with col2:
         # Individual Player Analysis Section
         with st.container():
-            st.subheader("Individual Player Analysis")
+            st.subheader("Jugadoras individuales")
             player = st.selectbox(
-                "Select a player:",
+                "Seleccione un jugadora:",
                 options=data['Nombre'].unique()
             )
             
@@ -49,9 +49,9 @@ def main():
 
         # Yearly Statistics Section
         with st.container():
-            st.subheader("Yearly Statistics Analysis")
+            st.subheader("Datos de Liga por año")
             stat = st.selectbox(
-                "Select a statistic:",
+                "Seleccione una estadística:",
                 options=STATS_COLUMNS
             )
             
