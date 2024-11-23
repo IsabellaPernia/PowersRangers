@@ -28,7 +28,7 @@ def main():
 
         # Contract Statistics Section
         with st.container():
-            st.subheader("Gráfica: Contrato contra Estadísticas Endividuales")
+            st.subheader("Gráfica: Contrato contra Estadísticas Individuales")
             contract_image = load_image(CONTRACT_GRAPH_URL)
             if contract_image:
                 st.image(contract_image, use_column_width=True)
